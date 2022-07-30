@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-from log_parser.log_parser import get_datetime_from_log_line, get_timedelta
+from src.log_parser.log_parser import get_datetime_from_log_line, get_timedelta
 
 
 def test_get_datetime_from_log_line():

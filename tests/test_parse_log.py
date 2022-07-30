@@ -1,4 +1,4 @@
-from log_parser.log_parser import parse_log_lines, get_operations_run_time_from_logs_lines, get_operations_avg_time_from_logs_lines, parse_logs, get_operations_avg_time_from_run_time, parse_logs_from_file
+from src.log_parser.log_parser import parse_log_lines, get_operations_run_time_from_logs_lines, get_operations_avg_time_from_logs_lines, from_string, get_operations_avg_time_from_run_time, from_file
 from datetime import timedelta, timedelta
 
 logs_1 = "2022-02-01T10:00 Operation ABC Start"
@@ -183,12 +183,12 @@ def test_2_get_operations_avg_time_2_operations_2_runs_and_3_runs():
 
 
 def test_log_parser():
-    assert parse_logs(logs_2) == {
+    assert from_string(logs_2) == {
         "ABC": timedelta(hours=2)
     }
 
 def test_input_from_file():
-    assert parse_logs_from_file("./tests/test_input.txt") == {
+    assert from_file("./tests/test_input.txt") == {
         "ABC": timedelta(hours=3, minutes=20),
         "XYZ": timedelta(hours=10, minutes=2),
         "WXY": timedelta(minutes=3)

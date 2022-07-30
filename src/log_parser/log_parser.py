@@ -190,7 +190,7 @@ def print_operations_avg_time(average_operations_run_time):
             operation_name=operation_name, avg_time=avg_time))
 
 
-def parse_logs(logs):
+def from_string(logs):
     """
     Parse logs and extract for each operation the average run time
 
@@ -213,12 +213,10 @@ def parse_logs(logs):
     average_operations_run_time = get_operations_avg_time_from_logs_lines(
         logs_lines)
 
-    print_operations_avg_time(average_operations_run_time)
-
     return average_operations_run_time
 
 
-def parse_logs_from_file(input_file_path):
+def from_file(input_file_path):
     """
     Parse logs and extract for each operation the average run time
 
@@ -238,5 +236,5 @@ def parse_logs_from_file(input_file_path):
     file = open(input_file_path, "r")
     logs = file.read()
 
-    return parse_logs(logs)
+    return from_string(logs)
 
